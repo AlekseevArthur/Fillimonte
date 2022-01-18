@@ -4,9 +4,9 @@ FactoryBot.define do
     genre { 'Drama' }
     release_date { '2000.01.01' }
     description { 'The philosofic drama baut shizo who had imagine friend and fund a terroristic group' }
-    image_url { '1.jpg' }
+    image_url { 'assets/Fight_Club_poster.jpg' }
     director { 'Carantino Tventin' }
-    trailer { 'youtube/adfsdq123' }
+    trailer { 'https://www.youtube.com/embed/qtRKdVHc-cE' }
     rating { '6+' }
   end
 

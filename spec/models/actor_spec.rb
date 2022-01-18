@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Actor do
   it 'is valid with valid attributes' do
     expect(build(:actor)).to be_valid

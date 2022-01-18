@@ -17,3 +17,13 @@
     transform: scale(1.01);
     background: linear-gradient(45deg, rgba(29, 236, 197, 0.5), rgba(91, 14, 214, 0.5) 100%);
 }
+.myClass {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: rgba(9, 73, 248, 0.793);
+    padding: 1rem;
+    font-size: 1.25rem;
+    border-bottom: 1px solid rgba(9, 73, 248, 0.793);
+    max-width: 350px;
+}

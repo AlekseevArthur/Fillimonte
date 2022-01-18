@@ -1,7 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe "Films", type: :request do
-  describe "GET /index" do
-    pending "add some examples (or delete) #{__FILE__}"
+RSpec.describe 'Films requests', type: :request do
+  describe 'GET /index' do
+    it do
+      get '/films'
+      expect(response).to have_http_status(:ok)
+    end
   end
 end
