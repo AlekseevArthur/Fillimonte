@@ -4,8 +4,8 @@ import { Card, Nav } from 'react-bootstrap'
 const FilmCard = ({ film }) => {
   return (
     <Nav.Link style={{ color: 'black' }} href={`/films/${film.id}`}>
-      <Card border="primary" style={{ width: '18rem' }}>
-        <Card.Img style={{ maxHeight: '18rem' }} variant="top" src={'/' + film.image_url} />
+      <Card border='primary' style={{ width: '18rem' }}>
+        <Card.Img style={{ maxHeight: '18rem' }} variant='top' src={film.image_url} />
         <Card.Body>
           <Card.Title>{film.name}</Card.Title>
           <Card.Text>

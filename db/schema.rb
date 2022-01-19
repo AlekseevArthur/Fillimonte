@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 2022_01_17_111433) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "actors_films", force: :cascade do |t|
+    t.integer "actor_id"
+    t.integer "film_id"
+    t.index ["actor_id"], name: "index_actors_films_on_actor_id"
+    t.index ["film_id"], name: "index_actors_films_on_film_id"
+  end
+
   create_table "films", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -30,13 +37,6 @@ ActiveRecord::Schema.define(version: 2022_01_17_111433) do
     t.string "trailer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "films_actors", id: false, force: :cascade do |t|
-    t.integer "actors_id"
-    t.integer "films_id"
-    t.index ["actors_id"], name: "index_films_actors_on_actors_id"
-    t.index ["films_id"], name: "index_films_actors_on_films_id"
   end
 
 end

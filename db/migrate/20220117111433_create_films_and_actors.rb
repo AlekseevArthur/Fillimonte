@@ -20,9 +20,9 @@ class CreateFilmsAndActors < ActiveRecord::Migration[6.1]
       t.timestamps
     end
 
-    create_table :films_actors, id: false do |t|
-      t.belongs_to :actors
-      t.belongs_to :films
+    create_table :actors_films do |t|
+      t.belongs_to :actor
+      t.belongs_to :film
     end
   end
 end

@@ -24,7 +24,7 @@ const MainPage = ({ films }) => {
         handleChange={handleChange}
       />
       <hr />
-      <Row xs={1} md={2} lg={3} className="g-4">
+      <Row xs={1} md={2} lg={3} className='g-4'>
         {
           filteredFilms.map((film, key) => <FilmCard film={film} key={key} />)
         }

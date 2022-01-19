@@ -1,13 +1,14 @@
-import React from "react"
+import React from 'react'
 import { Image, Container, Row, Col } from 'react-bootstrap'
-import Gallery from "./Gallery"
+import Gallery from './Gallery'
 
-const FilmPage = ({ film }) => {
+const FilmPage = ({ film, actors }) => {
+
   return (
     <Container>
       <hr />
       <Row>
-        <Col><Image src={'/' + film.image_url} /></Col>
+        <Col><Image src={film.image_url} /></Col>
         <Col>
           <h1>{film.name}</h1>
           <hr />
@@ -52,14 +53,12 @@ const FilmPage = ({ film }) => {
       </Row>
       <Row>
         <h3 className='myClass'>Trailer</h3>
-        <iframe width="420" height="315"
+        <iframe width='420' height='315'
           src={film.trailer}>
         </iframe>
       </Row>
-      <Row>
-        <h3 className='myClass'>Gallery</h3>
-        <Gallery />
-      </Row>
+
+      <Gallery actors={actors} />
     </Container>
   )
 }

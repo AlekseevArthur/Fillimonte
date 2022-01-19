@@ -11,7 +11,7 @@ film1 = Film.create({
                       name: 'Fight Club',
                       description: desc,
                       release_date: '1999.10.09',
-                      image_url: 'assets/Fight_Club_poster.jpg',
+                      image_url: '/assets/Fight_Club_poster.jpg',
                       genre: 'drama',
                       director: 'David Fincher',
                       rating: '16+',
@@ -29,7 +29,7 @@ Film.create({
               name: 'Drive',
               description: desc,
               release_date: '2011.05.20',
-              image_url: 'assets/Drive2011Poster.jpg',
+              image_url: '/assets/Drive2011Poster.jpg',
               genre: 'drama',
               director: 'Nicolas Winding Refn',
               rating: '16+',
@@ -47,7 +47,7 @@ Film.create({
               name: 'District 9',
               description: desc,
               release_date: '2009.08.13',
-              image_url: 'assets/District_nine_ver2.jpg',
+              image_url: '/assets/District_nine_ver2.jpg',
               genre: 'science',
               director: 'Neill Blomkamp',
               rating: '16+',
@@ -65,11 +65,16 @@ Film.create({
               name: 'Rogue One',
               description: desc,
               release_date: '2016.12.31',
-              image_url: 'assets/Rogue_One_poster.png',
+              image_url: '/assets/Rogue_One_poster.png',
               genre: 'space opera',
               director: 'Gareth Edwards',
               rating: '6+',
               trailer: 'https://www.youtube.com/embed/frdj1zb9sMY'
             })
 
-film1.actors.create('Toyla diordoen')
+film1.actors.create({ name: 'Toyla diordoen', image_url: '/assets/actors/1.jpg' })
+film1.actors.create({ name: '11111 1111111', image_url: '/assets/actors/2.jpg' })
+film1.actors.create({ name: '22222 222222', image_url: '/assets/actors/1.jpg' })
+film1.actors.create({ name: '333333', image_url: '/assets/actors/2.jpg' })
+film1.actors.create({ name: '555555', image_url: '/assets/actors/1.jpg' })
+film1.actors.create({ name: '44444444', image_url: '/assets/actors/2.jpg' })
