@@ -17,4 +17,8 @@ FactoryBot.define do
     description { 123 }
     image_url { '1.txt' }
   end
+
+  factory :drive, parent: :film do
+    name { 'Drive' }
+  end
 end
