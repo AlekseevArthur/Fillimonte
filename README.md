@@ -2,6 +2,6 @@
 
 todo 
  -- more tests!
- -- slider
+ ++++ slider
  ++++ search
  -- users
