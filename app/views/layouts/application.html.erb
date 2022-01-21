@@ -9,7 +9,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <%= react_component('MyNavbar')%>
+    <%= react_component('MyNavbar', { user: current_user })%>
     <%= yield %>
   </body>
 </html>

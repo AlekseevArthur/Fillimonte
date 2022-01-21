@@ -53,7 +53,7 @@ const FilmPage = ({ film, actors }) => {
       </Row>
       <Row>
         <h3 className='myClass'>Trailer</h3>
-        <iframe width='420' height='315'
+        <iframe width='420' height='330'
           src={film.trailer}>
         </iframe>
       </Row>
