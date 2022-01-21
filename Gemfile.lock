@@ -84,6 +84,7 @@ GEM
     childprocess (4.1.0)
     concurrent-ruby (1.1.9)
     connection_pool (2.2.5)
+    content_disposition (1.0.0)
     crass (1.0.6)
     devise (4.8.0)
       bcrypt (~> 3.0)
@@ -92,6 +93,8 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
+    down (5.2.4)
+      addressable (~> 2.8)
     erubi (1.10.0)
     execjs (2.8.1)
     factory_bot (6.2.0)
@@ -211,6 +214,9 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
+    shrine (3.4.0)
+      content_disposition (~> 1.0)
+      down (~> 5.1)
     spring (4.0.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -269,6 +275,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (>= 6)
   selenium-webdriver
+  shrine
   spring
   sqlite3 (~> 1.4)
   turbolinks (~> 5)

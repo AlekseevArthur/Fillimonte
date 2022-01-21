@@ -7,9 +7,8 @@ RSpec.describe 'Nav', type: :feature do
   end
 
   it 'has profile name if user auth' do
+    sign_in create(:user)
     visit '/'
-    user = create(:user)
-    sign_in user
-    expect(page).to have_content(user.name)
+    expect(page).to have_content('user')
   end
 end
