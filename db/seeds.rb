@@ -7,16 +7,16 @@ desc = 'Fight Club is a 1999 American film directed by David Fincher and starrin
 Film.delete_all
 Actor.delete_all
 
-film1 = Film.create({
-                      name: 'Fight Club',
-                      description: desc,
-                      release_date: '1999.10.09',
-                      image_url: '/assets/Fight_Club_poster.jpg',
-                      genre: 'drama',
-                      director: 'David Fincher',
-                      rating: '16+',
-                      trailer: 'https://www.youtube.com/embed/qtRKdVHc-cE'
-                    })
+film = Film.create({
+                     name: 'Fight Club',
+                     description: desc,
+                     release_date: '1999.10.09',
+                     image_url: '/assets/Fight_Club_poster.jpg',
+                     genre: 'drama',
+                     director: 'David Fincher',
+                     rating: '16+',
+                     trailer: 'https://www.youtube.com/embed/qtRKdVHc-cE'
+                   })
 
 desc = 'An unnamed Driver works as a mechanic, a stunt double, a stunt driver,
 and a criminal-for-hire getaway car driver in Los Angeles, California. His
@@ -24,6 +24,13 @@ jobs are all managed by auto shop owner Shannon, who persuades Jewish
 mobster Bernie Rose and his half-Italian partner Nino "Izzy" Paolozzi to
 purchase a car for the Driver to race. The Driver meets his new neighbor,
 Irene, and grows close to her and her young son, Benicio.'
+
+film.actors.create({ name: 'Toyla diordoen', image_url: '/assets/actors/1.jpg' })
+film.actors.create({ name: '11111 1111111', image_url: '/assets/actors/2.jpg' })
+film.actors.create({ name: '22222 222222', image_url: '/assets/actors/1.jpg' })
+film.actors.create({ name: '333333', image_url: '/assets/actors/2.jpg' })
+film.actors.create({ name: '555555', image_url: '/assets/actors/1.jpg' })
+film.actors.create({ name: '44444444', image_url: '/assets/actors/2.jpg' })
 
 Film.create({
               name: 'Drive',
@@ -71,10 +78,3 @@ Film.create({
               rating: '6+',
               trailer: 'https://www.youtube.com/embed/frdj1zb9sMY'
             })
-
-film1.actors.create({ name: 'Toyla diordoen', image_url: '/assets/actors/1.jpg' })
-film1.actors.create({ name: '11111 1111111', image_url: '/assets/actors/2.jpg' })
-film1.actors.create({ name: '22222 222222', image_url: '/assets/actors/1.jpg' })
-film1.actors.create({ name: '333333', image_url: '/assets/actors/2.jpg' })
-film1.actors.create({ name: '555555', image_url: '/assets/actors/1.jpg' })
-film1.actors.create({ name: '44444444', image_url: '/assets/actors/2.jpg' })

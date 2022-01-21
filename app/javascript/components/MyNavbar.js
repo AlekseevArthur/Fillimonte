@@ -33,6 +33,10 @@ const ProfileNav = ({ user, token, image }) => {
     setShow(false);
   }
 
+  const redirect = () => {
+    window.location.href = '/user'
+  }
+
   return (
     <NavDropdown id='lol'
       show={show}
@@ -46,8 +50,8 @@ const ProfileNav = ({ user, token, image }) => {
           height={30}
           src={image}
         /></>
-      } id="nav-dropdown">
-      <NavDropdown.Item >Profile</NavDropdown.Item>
+      } id='nav-dropdown'>
+      <NavDropdown.Item onClick={redirect}>Profile</NavDropdown.Item>
       <NavDropdown.Item onClick={logout}>Log Out</NavDropdown.Item>
     </NavDropdown>
   )
