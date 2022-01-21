@@ -8,7 +8,7 @@ const FilmPage = ({ film, actors }) => {
     <Container>
       <hr />
       <Row>
-        <Col><Image src={film.image_url} /></Col>
+        <Col><Image height={320} src={film.image_url} /></Col>
         <Col>
           <h1>{film.name}</h1>
           <hr />
