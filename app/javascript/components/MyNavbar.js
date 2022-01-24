@@ -7,7 +7,10 @@ const MyNavbar = ({ user, token, image }) => {
       <Container>
         <Navbar.Brand href='/'>Fillimonte</Navbar.Brand>
         <Nav>
-          {user ? <ProfileNav user={user} token={token} image={image} /> : <Nav.Link href='/users/sign_in'>Login</Nav.Link>}
+          {user
+            ? <ProfileNav user={user} token={token} image={image} />
+            : <Nav.Link href='/users/sign_in'>Login</Nav.Link>
+          }
         </Nav>
       </Container>
     </Navbar>
@@ -26,10 +29,10 @@ const ProfileNav = ({ user, token, image }) => {
   }
 
   const [show, setShow] = useState(false);
-  const showDropdown = (e) => {
+  const showDropdown = () => {
     setShow(!show);
   }
-  const hideDropdown = e => {
+  const hideDropdown = () => {
     setShow(false);
   }
 
@@ -42,17 +45,20 @@ const ProfileNav = ({ user, token, image }) => {
       show={show}
       onMouseEnter={showDropdown}
       onMouseLeave={hideDropdown}
-      title={<>
-        <span style={{ paddingRight: '5px' }} className="ms-1">{user.name}   </span>
-        <Image
-          roundedCircle
-          width={30}
-          height={30}
-          src={image}
-        /></>
-      } id='nav-dropdown'>
+      title={
+        <>
+          <span style={{ paddingRight: '5px' }} className="ms-1">{user.name}   </span>
+          <Image
+            roundedCircle
+            width={30}
+            height={30}
+            src={image}
+          />
+        </>
+      }
+      id='nav-dropdown'>
       <NavDropdown.Item onClick={redirect}>Profile</NavDropdown.Item>
-      <NavDropdown.Item onClick={logout}>Log Out</NavDropdown.Item>
+      <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
     </NavDropdown>
   )
 }

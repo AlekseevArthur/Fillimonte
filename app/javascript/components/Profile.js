@@ -1,10 +1,10 @@
-import React from 'react';
-import { Card, ListGroupItem, ListGroup } from 'react-bootstrap';
+import React from 'react'
+import { Card, ListGroupItem, ListGroup } from 'react-bootstrap'
 
 const Profile = ({ user, image }) => {
   return (
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={image} />
+      <Card.Img variant='top' src={image} />
       <Card.Body>
         <Card.Title>{user.name}</Card.Title>
         <Card.Text>
@@ -14,9 +14,8 @@ const Profile = ({ user, image }) => {
       <ListGroup className='list-group-flush'>
         <ListGroupItem>{user.phone}</ListGroupItem>
       </ListGroup>
-
     </Card>
   )
-};
+}
 
-export default Profile;
+export default Profile
