@@ -18,7 +18,7 @@ RSpec.describe 'User', type: :feature do
     create(:user)
     visit '/'
     click_on 'Login'
-    fill_in 'Email', with: 'qwerty@qwerty'
+    fill_in 'Email', with: 'qwerty@qwerty.com'
     fill_in 'Password', with: '111111'
     click_on 'Submit'
     expect(page).to have_content('user')

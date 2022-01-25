@@ -2,15 +2,14 @@ import React, { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
 
-
 const Signup = ({ token }) => {
   const [error, setError] = useState(false)
 
-  const { }
+  const { handleSubmit, register, formState: { errors } } = useForm();
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const formData = new FormData(e.target)
+  const onSubmit = values => {
+    console.log(values)
+    const formData = new FormData(values)
     fetch('/users',
       {
         method: 'POST',
@@ -23,12 +22,15 @@ const Signup = ({ token }) => {
   }
 
   return (
-    <Form className='container' style={{ maxWidth: '400px' }} onSubmit={handleSubmit}>
+    <Form className='container' style={{ maxWidth: '400px' }} onSubmit={handleSubmit(onSubmit)}>
       <h1>SIGN UP</h1>
       {error ? <h4 style={{ color: 'red' }}>Error! Wrong email or password</h4> : null}
       <Form.Group className='mb-3' controlId='formBasicEmail'>
         <Form.Label>Email address</Form.Label>
-        <Form.Control name='user[email]' type='email' placeholder='Enter email' />
+        <Form.Control 
+        name='user[email]' 
+        type='email' 
+        placeholder='Enter email' />
       </Form.Group>
 
       <Form.Group className='mb-3' controlId='formBasicPassword'>

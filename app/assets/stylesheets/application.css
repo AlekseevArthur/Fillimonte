@@ -1,8 +1,7 @@
-.card:hover {
+.film-card:hover {
     transform: scale(1.01);
     background: linear-gradient(45deg, rgba(29, 236, 197, 0.5), rgba(91, 14, 214, 0.5) 100%);
 }
-
 .myClass {
     text-transform: uppercase;
     margin-bottom: 1rem;
@@ -49,5 +48,5 @@
 }
 
 .navbar-nav .dropdown-menu {
-    position: absolute!important
+    position: absolute !important;
 }
