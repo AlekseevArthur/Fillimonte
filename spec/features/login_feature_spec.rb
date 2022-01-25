@@ -20,7 +20,7 @@ RSpec.describe 'User', type: :feature do
     click_on 'Login'
     fill_in 'Email', with: 'qwerty@qwerty'
     fill_in 'Password', with: '111111'
-    click_on 'Log in'
+    click_on 'Submit'
     expect(page).to have_content('user')
   end
 

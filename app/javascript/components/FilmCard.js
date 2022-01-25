@@ -7,9 +7,11 @@ const FilmCard = ({ film }) => {
       <Card border='primary' style={{ width: '18rem' }}>
         <Card.Img style={{ maxHeight: '18rem' }} variant='top' src={film.image_url} />
         <Card.Body>
-          <Card.Title>{film.name}</Card.Title>
+          <Card.Title>
+            {CutOverflow(film.name, 24)}
+          </Card.Title>
           <Card.Text>
-            {CutOverflow(film.description)}
+            {CutOverflow(film.description, 185)}
           </Card.Text>
         </Card.Body>
       </Card>
@@ -17,6 +19,9 @@ const FilmCard = ({ film }) => {
   )
 }
 
-const CutOverflow = (text) => `${text.slice(0, 200)}...`
+const CutOverflow = (text, length) =>
+  text.length + 3 >= length
+    ? `${text.slice(0, length)}...`
+    : text
 
 export default FilmCard

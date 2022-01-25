@@ -11,7 +11,6 @@ const Signin = ({ token }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('hi login page')
     fetch('/users/sign_in',
       {
         method: 'POST',
@@ -28,21 +27,21 @@ const Signin = ({ token }) => {
     <Form className='container' style={{ maxWidth: '400px' }} onSubmit={handleSubmit}>
       <h1>LOGIN</h1>
       {error ? <h4 style={{ color: 'red' }}>Error! Wrong email or password</h4> : null}
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className='mb-3' controlId='formBasicEmail'>
         <Form.Label>Email address</Form.Label>
-        <Form.Control onChange={handleChange} name='email' type="email" placeholder="Enter email" />
+        <Form.Control onChange={handleChange} name='email' type='email' placeholder='Enter email' />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
+      <Form.Group className='mb-3' controlId='formBasicPassword'>
         <Form.Label>Password</Form.Label>
-        <Form.Control onChange={handleChange} name='password' type="password" placeholder="Password" />
+        <Form.Control onChange={handleChange} name='password' type='password' placeholder='Password' />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
+      <Form.Group className='mb-3' controlId='formBasicCheckbox'>
+        <Form.Check type='checkbox' label='Check me out' />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button variant='primary' type='submit'>
         Submit
       </Button>
       <div>

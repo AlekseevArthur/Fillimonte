@@ -3,7 +3,6 @@ import { Row, Col, Button } from 'react-bootstrap'
 
 
 const Gallery = ({ actors }) => {
-
   const [active, setActive] = useState(0)
 
   const next = () => {
