@@ -8,10 +8,6 @@ const Signin = ({ token }) => {
 
   const { handleSubmit, register, formState: { errors } } = useForm();
 
-  const handleChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value })
-  }
-
   const onSubmit = values => {
     fetch('/users/sign_in',
       {
@@ -40,7 +36,8 @@ const Signin = ({ token }) => {
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
               message: "invalid email address"
-            }
+            },
+            maxLength: 20
           })} />
         {errors.email && errors.email.message}
       </Form.Group>
@@ -49,12 +46,12 @@ const Signin = ({ token }) => {
         <Form.Label>Password</Form.Label>
         <Form.Control
           name='password'
-          onChange={handleChange}
           type='password'
           placeholder='Password'
           {...register("password", {
             required: "Required"
           })} />
+        {errors.password && errors.password.message}
       </Form.Group>
 
       <Button variant='primary' type='submit'>

@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :phone, phone: true
   validates :name, length: { maximum: 20 }
   validates :name, :phone, presence: true
+  validates :name, uniqueness: true
 end
