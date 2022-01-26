@@ -7,4 +7,6 @@ class Film < ApplicationRecord
     message: 'must be a URL for GIF, JPG or PNG image.'
   }
   has_and_belongs_to_many :actors
+
+  has_many :comments
 end

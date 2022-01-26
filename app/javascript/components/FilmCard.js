@@ -12,6 +12,10 @@ const FilmCard = ({ film }) => {
               {CutOverflow(film.name, 20)}
             </Card.Title>
             <Card.Text>
+            {film.genre}
+
+            </Card.Text>
+            <Card.Text>
               {CutOverflow(film.description, 160)}
             </Card.Text>
           </Card.Body>

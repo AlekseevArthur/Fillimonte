@@ -9,7 +9,6 @@ const Signup = ({ token }) => {
 
   const onSubmit = values => {
     const data = new FormData()
-    console.log(values)
     for (const key in values) {
       if (key === 'image') {
         data.append(`user[${key}]`, values[key][0])
@@ -26,7 +25,7 @@ const Signup = ({ token }) => {
         },
         body: data
       })
-      .then(res => res.redirected ? window.location.href = '/' : setError(true))
+      .then(res => res.redirected ? window.location.href = '/' : setError(res))
   }
 
   return (
@@ -39,6 +38,7 @@ const Signup = ({ token }) => {
           name='user[email]'
           type='email'
           placeholder='Enter email'
+          maxLength={20}
           {...register("email", {
             required: "Required",
             pattern: {

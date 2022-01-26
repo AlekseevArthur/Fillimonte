@@ -8,4 +8,8 @@ class User < ApplicationRecord
   validates :name, length: { maximum: 20 }
   validates :name, :phone, presence: true
   validates :name, uniqueness: true
+
+  has_many :comments
+  has_many :watchlaters
+  has_many :vieweds
 end

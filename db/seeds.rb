@@ -12,7 +12,7 @@ film = Film.create({
                      description: desc,
                      release_date: '1999.10.09',
                      image_url: '/assets/Fight_Club_poster.jpg',
-                     genre: 'drama',
+                     genre: 'Drama',
                      director: 'David Fincher',
                      rating: '16+',
                      trailer: 'https://www.youtube.com/embed/qtRKdVHc-cE'
@@ -37,7 +37,7 @@ film = Film.create({
                      description: desc,
                      release_date: '2011.05.20',
                      image_url: '/assets/Drive2011Poster.jpg',
-                     genre: 'drama',
+                     genre: 'Drama',
                      director: 'Nicolas Winding Refn',
                      rating: '16+',
                      trailer: 'https://www.youtube.com/embed/KBiOF3y1W0Y'
@@ -62,7 +62,7 @@ film = Film.create({
                      description: desc,
                      release_date: '2009.08.13',
                      image_url: '/assets/District_nine_ver2.jpg',
-                     genre: 'science',
+                     genre: 'Science',
                      director: 'Neill Blomkamp',
                      rating: '16+',
                      trailer: 'https://www.youtube.com/embed/DyLUwOcR5pk'
@@ -87,7 +87,7 @@ film = Film.create({
                      description: desc,
                      release_date: '2016.12.31',
                      image_url: '/assets/Rogue_One_poster.png',
-                     genre: 'space opera',
+                     genre: 'Space opera',
                      director: 'Gareth Edwards',
                      rating: '6+',
                      trailer: 'https://www.youtube.com/embed/frdj1zb9sMY'
@@ -112,7 +112,7 @@ film = Film.create({
                      description: desc,
                      release_date: '1992.11.20',
                      image_url: '/assets/Home_Alone_2.jpg',
-                     genre: 'comedy',
+                     genre: 'Comedy',
                      director: 'Chris Columbus',
                      rating: '0+',
                      trailer: 'https://www.youtube.com/embed/5h9VDUNtoto'
@@ -137,7 +137,7 @@ film = Film.create({
                      description: desc,
                      release_date: '2007.08.21',
                      image_url: '/assets/310_to_Yuma_(2007_film).jpg',
-                     genre: 'western',
+                     genre: 'Western',
                      director: 'James Mangold',
                      rating: '18+',
                      trailer: 'https://www.youtube.com/embed/jX1m45CwvJ8'
