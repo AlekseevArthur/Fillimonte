@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Comment, type: :model do
+RSpec.describe 'Comment model', type: :model do
   it 'is valid with valid attributes' do
     comment = create(:comment)
     expect(comment).to be_valid

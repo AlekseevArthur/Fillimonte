@@ -4,13 +4,13 @@ import Gallery from './Gallery'
 import { Rating } from 'react-simple-star-rating'
 
 
-const FilmPage = ({ film, actors, token }) => {
-  const [rating, setRating] = useState(0)
+const FilmPage = ({ film, actors, token, rating: defaultRating, sign_in: login }) => {
+  const [rating, setRating] = useState(defaultRating * 20)
 
   const handleRating = (rate) => {
-    setRating(rate)
+
     fetch(`${window.location.href}/rating.json`, {
-      method: 'POST',
+      method: rating ? 'PUT' : 'POST',
       headers: {
         'X-CSRF-Token': token,
         'Content-type': 'application/json'
@@ -19,11 +19,12 @@ const FilmPage = ({ film, actors, token }) => {
     })
   }
 
+  console.log(login)
   return (
     <Container>
       <hr />
       <Row>
-        <Col><Image height={320} src={film.image_url} /></Col>
+        <Col><Image height={340} src={film.image_url} /></Col>
         <Col>
           <h1>{film.name}</h1>
           <hr />
@@ -54,16 +55,20 @@ const FilmPage = ({ film, actors, token }) => {
           </Row>
           <Row>
             <Col>
-              <p>Rating</p>
+              <p>Age rate</p>
             </Col>
             <Col>
               <p>{film.rating}</p>
             </Col>
           </Row>
+          <hr />
           <Rating
+            readonly={login ? false : true}
+            allowHover={false}
             showTooltip
             onClick={handleRating}
             ratingValue={rating} />
+          <hr />
         </Col>
       </Row>
       <Row>

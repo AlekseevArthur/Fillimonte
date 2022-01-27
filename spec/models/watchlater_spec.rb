@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Watchlater, type: :model do
+RSpec.describe 'Watchlater model', type: :model do
   it 'is valid with valid attrs' do
     expect(create(:watchlater)).to be_valid
   end

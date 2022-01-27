@@ -9,9 +9,16 @@ Capybara.register_driver :chrome_headless do |app|
                                    args: %w[headless disable-gpu no-sandbox window-size=1024,768]
                                  )]
 end
+
 Capybara.server = :puma
 Capybara.default_driver = :selenium_chrome_headless
 Capybara.javascript_driver = :selenium_chrome_headless
+
+# Capybara.register_driver :chrome do |app|
+#  Capybara::Selenium::Driver.new(app, browser: :chrome)
+# end
+# Capybara.default_driver = :chrome
+# Capybara.javascript_driver = :chrome
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

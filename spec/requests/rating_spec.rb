@@ -21,9 +21,12 @@ RSpec.describe 'Ratings requests', type: :request do
 
   it 'can change by auth user' do
     sign_in user
+
     film
-    put "/films/#{film.id}/rating", params: { rating: 1 }
+    post "/films/#{film.id}/rating", params: { rating: 3 }
+
     expect(Rating.count).to eq(1)
+    put "/films/#{film.id}/rating", params: { rating: 1 }
     expect(Rating.first.rating).to eq(1)
     expect(response).to have_http_status(200)
   end

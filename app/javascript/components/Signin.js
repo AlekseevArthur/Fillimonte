@@ -37,7 +37,7 @@ const Signin = ({ token }) => {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
               message: "invalid email address"
             },
-            maxLength: 20
+            maxLength: 40
           })} />
         {errors.email && errors.email.message}
       </Form.Group>

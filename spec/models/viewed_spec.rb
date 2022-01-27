@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Viewed, type: :model do
+RSpec.describe 'Viewed model', type: :model do
   it 'is valid with valid attrs' do
     expect(create(:viewed)).to be_valid
   end

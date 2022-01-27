@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Rating, type: :model do
+RSpec.describe 'Rating model', type: :model do
   it 'is valid with valid attrs' do
     expect(create(:rating)).to be_valid
   end

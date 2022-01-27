@@ -12,8 +12,10 @@
 - ?rewrite model tests?
 - image test
 - errors stylization
+- ?test on raating?
 
-- Rating
+
++ Rating
 - Watch later category
   - Modal window confirmation
 - Whatched category

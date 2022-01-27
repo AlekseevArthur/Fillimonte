@@ -15,9 +15,9 @@ class RatingsController < ApplicationController
   end
 
   def update
-    @rating = Rating.new({ user_id: current_user.id, film_id: params[:film_id], rating: params[:rating] })
+    @rating = Rating.find_by(user_id: current_user.id, film_id: params[:film_id])
     respond_to do |format|
-      if @rating.save
+      if @rating.update(rating: params[:rating])
         format.json { render json: @rating, status: :ok }
         format.html { render json: @rating, status: :ok }
       else

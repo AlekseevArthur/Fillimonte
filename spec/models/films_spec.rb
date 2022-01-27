@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Film do
+RSpec.describe 'Film model' do
   it 'is valid with valid attributes' do
     expect(build(:film)).to be_valid
   end
