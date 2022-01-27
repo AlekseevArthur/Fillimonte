@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Image, Container, Row, Col } from 'react-bootstrap'
 import Gallery from './Gallery'
+import { Rating } from 'react-simple-star-rating'
 
-const FilmPage = ({ film, actors }) => {
+
+const FilmPage = ({ film, actors, token }) => {
+  const [rating, setRating] = useState(0)
+
+  const handleRating = (rate) => {
+    setRating(rate)
+    fetch(`${window.location.href}/rating.json`, {
+      method: 'POST',
+      headers: {
+        'X-CSRF-Token': token,
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({ rating: rate / 20 })
+    })
+  }
 
   return (
     <Container>
@@ -45,6 +60,10 @@ const FilmPage = ({ film, actors }) => {
               <p>{film.rating}</p>
             </Col>
           </Row>
+          <Rating
+            showTooltip
+            onClick={handleRating}
+            ratingValue={rating} />
         </Col>
       </Row>
       <Row>
