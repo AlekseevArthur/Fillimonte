@@ -83,6 +83,9 @@ const FilmPage = ({ film, actors, token, rating: defaultRating, sign_in: login }
       </Row>
 
       <Gallery actors={actors} />
+      <hr />
+      <Row> <h3 className='myClass'>Comments</h3></Row>
+
     </Container>
   )
 }

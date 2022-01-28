@@ -96,8 +96,8 @@ const Signup = ({ token }) => {
               message: "invalid name"
             },
             maxLength: {
-              value: 20,
-              message: '20 characters max'
+              value: 40,
+              message: '40 characters max'
             },
             minLength: {
               value: 3,

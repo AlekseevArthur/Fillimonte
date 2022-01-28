@@ -15,9 +15,11 @@
 - ?test on raating?
 
 
-+ Rating
+- Rating
+  - aside panel with change info
 - Watch later category
   - Modal window confirmation
+  - constait with viewed?????
 - Whatched category
 - Films sort by rate
 - Comments
