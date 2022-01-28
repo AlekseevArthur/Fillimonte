@@ -1,30 +1,18 @@
 import React, { useState } from 'react'
 import { Card, ListGroupItem, ListGroup, Container, Row, Col, Tabs, Tab } from 'react-bootstrap'
+import CategoryPanel from './CategoryPanel';
 
 const Profile = ({ user, image }) => {
-  const [key, setKey] = useState('watchlater');
+
   return (
     <Container>
+      <hr />
       <Row>
         <Col sm={4}>
           <UserCard user={user} image={image} />
         </Col>
         <Col sm={8}>
-          <Container>
-            <Tabs
-              id="controlled-tab-example"
-              activeKey={key}
-              onSelect={(k) => setKey(k)}
-              className="mb-3"
-            >
-              <Tab eventKey="watchlater" title="Watchlater">
-                Watchlater
-              </Tab>
-              <Tab eventKey="viewed" title="Viewed">
-                Viewed
-              </Tab>
-            </Tabs>
-          </Container>
+          <CategoryPanel />
         </Col>
       </Row>
     </Container >

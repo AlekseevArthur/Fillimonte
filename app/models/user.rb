@@ -12,4 +12,5 @@ class User < ApplicationRecord
   has_many :comments
   has_many :watchlaters
   has_many :vieweds
+  has_many :films, through: :watchlaters
 end

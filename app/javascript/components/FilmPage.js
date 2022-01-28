@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { Image, Container, Row, Col } from 'react-bootstrap'
+import { Image, Container, Row, Col, Button } from 'react-bootstrap'
 import Gallery from './Gallery'
 import { Rating } from 'react-simple-star-rating'
-
+import { BookmarkFill, EyeFill } from 'react-bootstrap-icons';
 
 const FilmPage = ({ film, actors, token, rating: defaultRating, sign_in: login }) => {
   const [rating, setRating] = useState(defaultRating * 20)
@@ -19,12 +19,14 @@ const FilmPage = ({ film, actors, token, rating: defaultRating, sign_in: login }
     })
   }
 
-  console.log(login)
   return (
     <Container>
       <hr />
       <Row>
-        <Col><Image height={340} src={film.image_url} /></Col>
+        <Col>
+          <Image height={380} src={film.image_url} />
+        </Col>
+
         <Col>
           <h1>{film.name}</h1>
           <hr />
@@ -61,6 +63,12 @@ const FilmPage = ({ film, actors, token, rating: defaultRating, sign_in: login }
               <p>{film.rating}</p>
             </Col>
           </Row>
+          <Button>
+            <EyeFill />
+          </Button>
+          <Button variant="info">
+            <BookmarkFill />
+          </Button>
           <hr />
           <Rating
             readonly={login ? false : true}

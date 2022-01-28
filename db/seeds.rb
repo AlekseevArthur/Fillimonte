@@ -1,11 +1,16 @@
+Film.delete_all
+Actor.delete_all
+Rating.delete_all
+Watchlater.delete_all
+Viewed.delete_all
+User.delete_all
+
 desc = 'Fight Club is a 1999 American film directed by David Fincher and starring Brad Pitt,
  Edward Norton, and Helena Bonham Carter. It is based on the 1996 novel
  of the same name by Chuck Palahniuk. Norton plays the unnamed narrator,
  who is discontented with his white-collar job. He forms a "fight club"
  with soap salesman Tyler Durden (Pitt), and becomes embroiled in a
  relationship with a destitute woman, Marla Singer (Bonham Carter).'
-Film.delete_all
-Actor.delete_all
 
 film = Film.create({
                      name: 'Fight Club',
