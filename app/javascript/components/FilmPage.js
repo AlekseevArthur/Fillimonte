@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Image, Container, Row, Col, Button } from 'react-bootstrap'
 import Gallery from './Gallery'
 import { Rating } from 'react-simple-star-rating'
-import { BookmarkFill, EyeFill } from 'react-bootstrap-icons';
+import CategoryButtons from './CategoryButtons';
 
 const FilmPage = ({ film, actors, token, rating: defaultRating, sign_in: login }) => {
   const [rating, setRating] = useState(defaultRating * 20)
@@ -18,7 +18,6 @@ const FilmPage = ({ film, actors, token, rating: defaultRating, sign_in: login }
       body: JSON.stringify({ rating: rate / 20 })
     })
   }
-
   return (
     <Container>
       <hr />
@@ -63,12 +62,13 @@ const FilmPage = ({ film, actors, token, rating: defaultRating, sign_in: login }
               <p>{film.rating}</p>
             </Col>
           </Row>
-          <Button>
-            <EyeFill />
-          </Button>
-          <Button variant="info">
-            <BookmarkFill />
-          </Button>
+          {login
+            ? <CategoryButtons
+              filmId={film.id}
+              watchlater={film.watchlater}
+              viewed={film.viewed} />
+            : null
+          }
           <hr />
           <Rating
             readonly={login ? false : true}

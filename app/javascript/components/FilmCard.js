@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, Container, Nav, Button } from 'react-bootstrap'
-import { BookmarkFill, EyeFill } from 'react-bootstrap-icons';
+import CategoryButtons from './CategoryButtons';
 
 const FilmCard = ({ film }) => {
   return (
@@ -18,14 +18,10 @@ const FilmCard = ({ film }) => {
             <Card.Text>
               {CutOverflow(film.description, 100)}
             </Card.Text>
-            <Card.Text>
-              <Button>
-                <EyeFill />
-              </Button>
-              <Button variant="info">
-                <BookmarkFill />
-              </Button>
-            </Card.Text>
+            <CategoryButtons
+              filmId={film.id}
+              watchlater={film.watchlater}
+              viewed={film.viewed} />
           </Card.Body>
         </Nav.Link>
       </Card>

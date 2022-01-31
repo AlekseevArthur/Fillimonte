@@ -27,3 +27,4 @@
  - show more button
 - Modal welcome to unauth user
 - TESTS
+- toaster (notifications)(redux)
