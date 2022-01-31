@@ -1,9 +1,16 @@
 class WatchlatersController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :authenticate_user!, only: %i[create destroy]
+  before_action :authenticate_user!, only: %i[create destroy show]
+
+  def show
+    @watchlater = current_user.watchlaters.map(&:film)
+    @viewed = current_user.vieweds.map(&:film)
+  end
 
   def create
     @wl = Watchlater.new(user_id: current_user.id, film_id: params[:film_id])
+    Viewed.find_by(user_id: current_user.id, film_id: params[:film_id])&.destroy
+
     respond_to do |format|
       if @wl.save
         format.json { render json: @wl, status: :created }

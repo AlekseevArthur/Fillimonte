@@ -13,10 +13,10 @@ class FilmsController < ApplicationController
     return unless params[:query]
 
     @films = @films.filter do |film|
-      film.name.downcase
-          .include?(params[:query].downcase) ||
-        film.genre.downcase
-            .include?(params[:query].downcase)
+      film['name'].downcase
+                  .include?(params[:query].downcase) ||
+        film['genre'].downcase
+                     .include?(params[:query].downcase)
     end
   end
 
@@ -27,7 +27,7 @@ class FilmsController < ApplicationController
     @sign_in = current_user ? true : false
     @new_film = @film.attributes
     return unless @sign_in
-
+    
     @new_film[:watchlater] = Watchlater.exists?(user_id: current_user&.id, film_id: @film.id)
     @new_film[:viewed] = Viewed.exists?(user_id: current_user.id, film_id: @film.id)
   end

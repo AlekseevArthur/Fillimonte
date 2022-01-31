@@ -14,6 +14,7 @@ const Toaster = ({ message, setShow }) => {
               zIndex: '1000'
             }}
             bg='warning'
+            onClick={(e) => e.preventDefault()}
             onClose={setShow}
             show={message.show}
             delay={4000}

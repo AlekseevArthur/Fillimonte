@@ -17,15 +17,10 @@ const CategoryButtons = ({ filmId, viewed, watchlater }) => {
         : setMessage({ message: 'Already added', show: true }))
       .then(data => {
         if (data) {
-          setState({ ...state, [category]: !state[category] })
+          setState({ watchlater: false, viewed: false, [category]: true })
           setMessage({ message: `Added to ${category}`, show: true })
         }
       })
-  }
-
-  const load = () => {
-    fetch(`/user/${category}?film_id=${filmId}`)
-      .then()
   }
 
   return <>
