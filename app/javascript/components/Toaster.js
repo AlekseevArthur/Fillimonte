@@ -11,7 +11,8 @@ const Toaster = ({ message, setShow }) => {
               position: 'fixed',
               left: '10px',
               bottom: '10px',
-              zIndex: '1000'
+              zIndex: '1000',
+              opacity: '0.9'
             }}
             bg='warning'
             onClick={(e) => e.preventDefault()}

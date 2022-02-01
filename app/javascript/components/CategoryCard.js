@@ -2,29 +2,42 @@ import React, { useState } from 'react'
 import { Button, Row, Col, Image, Nav } from 'react-bootstrap';
 import { Rating } from 'react-simple-star-rating';
 import { Bookmark, Eye, BookmarkXFill, EyeSlashFill } from 'react-bootstrap-icons';
+import ModalDelete from './ModalDelete';
+
 
 const CategoryCard = ({ film, category, updateFilms }) => {
+  const [modalShow, setModalShow] = useState(false);
 
   const deleteClick = () => {
     fetch(`/user/${category}?film_id=${film.id}`, {
       method: 'DELETE'
     })
-      .then(() => updateFilms(true))
+      .then(() => {
+        updateFilms(true)
+      })
   }
 
-  const changeCategory = () => {
+  const changeCategory = (e) => {
+    e.preventDefault()
     fetch(`/user/${category == 'viewed' ? 'watchlater' : 'viewed'}?film_id=${film.id}`, {
       method: 'POST'
     })
-    .then(()=> updateFilms(true))
+      .then(() => updateFilms(true))
   }
 
   return (
-    <Nav.Link style={{ padding: 0, color: 'black' }} href='#'>
+    <Nav.Link style={{ padding: 0, color: 'black' }} href={`/films/${film.id}`}>
       <Row style={{ border: '1px solid aqua', padding: '3px' }}>
         <Col sm={4} style={{ padding: 0 }}>
           <Image width={'90%'} src={film.image_url} />
         </Col>
+
+        <ModalDelete
+          show={modalShow}
+          onClose={deleteClick}
+          onHide={() => setModalShow(false)}
+        />
+
         <Col sm={8}>
           <Row>
             {film.name}
@@ -51,7 +64,12 @@ const CategoryCard = ({ film, category, updateFilms }) => {
               <Button onClick={changeCategory}>
                 {category == 'watchlater' ? <Eye /> : <Bookmark />}
               </Button>
-              <Button variant="danger" onClick={deleteClick}>
+              <Button
+                variant="danger"
+                onClick={(e) => {
+                  e.preventDefault()
+                  setModalShow(true)
+                }}>
                 {category == 'watchlater' ? <BookmarkXFill /> : <EyeSlashFill />}
               </Button>
             </Col>

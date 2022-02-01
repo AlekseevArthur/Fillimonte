@@ -20,11 +20,11 @@
 - Watch later category
   - Modal window confirmation
   - constait with viewed?????
-- Whatched category
+- Watched category
 - Films sort by rate
 - Comments
  - only 5 comments on page
  - show more button
 - Modal welcome to unauth user
 - TESTS
-- toaster (notifications)(redux)
+- Toaster to all actions(how? dunno)
