@@ -51,13 +51,6 @@ const CategoryCard = ({ film, category, updateFilms }) => {
           <Row>
             {film.rating}
           </Row>
-          {/*  <hr style={{ margin: '4px' }} />
-          <Row style={{ margin: 'auto' }}>
-                   <Rating
-              readonly={true}
-              allowHover={false}
-              ratingValue={film.rating * 20} />
-    </Row>*/}
           <hr style={{ margin: '4px' }} />
           <Row>
             <Col>

@@ -3,6 +3,7 @@ import { Image, Container, Row, Col, Button } from 'react-bootstrap'
 import Gallery from './Gallery'
 import { Rating } from 'react-simple-star-rating'
 import CategoryButtons from './CategoryButtons';
+import CommentList from './CommentList';
 
 const FilmPage = ({ film, actors, token, rating: defaultRating, sign_in: login }) => {
   const [rating, setRating] = useState(defaultRating * 20)
@@ -92,7 +93,10 @@ const FilmPage = ({ film, actors, token, rating: defaultRating, sign_in: login }
 
       <Gallery actors={actors} />
       <hr />
-      <Row> <h3 className='myClass'>Comments</h3></Row>
+      <Row>
+        <h3 className='myClass'>Comments</h3>
+        <CommentList login={login}/>
+      </Row>
 
     </Container>
   )

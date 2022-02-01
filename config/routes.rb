@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :films do
     resources :comments
-    resource  :rating
+    resource :rating
   end
   resource :user do
     resource :watchlater
