@@ -20,8 +20,4 @@ RSpec.describe 'Watchlater button', type: :feature do
     click_on 'watchlater'
     expect(page).to have_content('Added to watchlater')
   end
-
-  it 'can add film on category panel'
-
-  it 'can delete film on category panel'
 end

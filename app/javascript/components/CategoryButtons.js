@@ -21,6 +21,7 @@ const CategoryButtons = ({ filmId, viewed, watchlater }) => {
           setMessage({ message: `Added to ${category}`, show: true })
         }
       })
+      .catch(() => setMessage({ message: 'You are not login', show: true }))
   }
 
   return <>
@@ -33,7 +34,7 @@ const CategoryButtons = ({ filmId, viewed, watchlater }) => {
       {state.viewed ? <EyeFill /> : <Eye />}
     </Button>
     <Button
-      name='watchlater'
+      name={'watchlater'}
       onClick={(e) => handleClick(e, 'watchlater')}
       variant="info">
       {state.watchlater ? <BookmarkFill /> : <Bookmark />}

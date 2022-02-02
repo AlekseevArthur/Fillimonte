@@ -14,6 +14,10 @@ const Comment = ({ comment, updateComments }) => {
   }
 
   return <Card
+    style={{ 
+      maxWidth: '800px',
+      margin: '5px auto'
+    }}
     border='success'
   >
     <Card.Body>

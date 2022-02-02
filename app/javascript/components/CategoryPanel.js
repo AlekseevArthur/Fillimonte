@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Container, Tabs, Tab, Spinner } from 'react-bootstrap';
 import CategoryCard from './CategoryCard';
 import { BookmarksFill, EyeFill } from 'react-bootstrap-icons';
+import Toaster from './Toaster';
 
 const CategoryPanel = () => {
   const [key, setKey] = useState('watchlater');
-
   const [loading, setLoad] = useState(true)
-
   const [films, setFilms] = useState({ viewed: [], watchlater: [] })
+  const [message, setMessage] = useState({ message: '', show: false })
 
   const updateFilms = () => {
     if (loading)
@@ -23,6 +23,9 @@ const CategoryPanel = () => {
   updateFilms()
   return (
     <Container>
+      <Toaster
+        message={message}
+        setShow={() => setMessage({ message: '', show: false })} />
       <Tabs
         id="controlled-tab-example"
         activeKey={key}
@@ -30,6 +33,7 @@ const CategoryPanel = () => {
         className="mb-3"
       >
         <Tab
+          name='watchlater'
           eventKey="watchlater"
           title={<BookmarksFill width={35} />}>
           <h3 className='myClass' style={{ paddingTop: 0 }}>Watchlater</h3>
@@ -40,10 +44,14 @@ const CategoryPanel = () => {
               category='watchlater'
               film={film}
               key={key}
+              setMessage={(message) => setMessage({ message: message, show: true })}
             />)
           }
         </Tab>
-        <Tab eventKey="viewed" title={<EyeFill width={35} />}>
+        <Tab
+          name='viewed'
+          eventKey="viewed"
+          title={<EyeFill width={35} />}>
           <h3 className='myClass' style={{ paddingTop: 0 }}>Viewed</h3>
           {loading
             ? <Spinner animation="border" variant="info" />
@@ -52,6 +60,7 @@ const CategoryPanel = () => {
               category='viewed'
               film={film}
               key={key}
+              setMessage={(message) => setMessage({ message: message, show: true })}
             />)
           }
         </Tab>

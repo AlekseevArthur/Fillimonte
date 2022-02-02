@@ -5,14 +5,16 @@ import { Bookmark, Eye, BookmarkXFill, EyeSlashFill } from 'react-bootstrap-icon
 import ModalDelete from './ModalDelete';
 
 
-const CategoryCard = ({ film, category, updateFilms }) => {
+const CategoryCard = ({ film, category, updateFilms, setMessage }) => {
   const [modalShow, setModalShow] = useState(false);
+
 
   const deleteClick = () => {
     fetch(`/user/${category}?film_id=${film.id}`, {
       method: 'DELETE'
     })
       .then(() => {
+        setMessage('Deleted')
         updateFilms(true)
       })
   }
@@ -22,11 +24,16 @@ const CategoryCard = ({ film, category, updateFilms }) => {
     fetch(`/user/${category == 'viewed' ? 'watchlater' : 'viewed'}?film_id=${film.id}`, {
       method: 'POST'
     })
-      .then(() => updateFilms(true))
+      .then(() => {
+        setMessage(`Added to ${category == 'viewed' ? 'watchlater' : 'viewed'}`)
+        updateFilms(true)
+
+      })
   }
 
   return (
-    <Nav.Link style={{ padding: 0, color: 'black' }} href={`/films/${film.id}`}>
+    <Nav.Link style={{ padding: 0, color: 'black', margin: '5px 0' }} href={`/films/${film.id}`}>
+
       <Row style={{ border: '1px solid aqua', padding: '3px' }}>
         <Col sm={4} style={{ padding: 0 }}>
           <Image width={'90%'} src={film.image_url} />
@@ -54,10 +61,13 @@ const CategoryCard = ({ film, category, updateFilms }) => {
           <hr style={{ margin: '4px' }} />
           <Row>
             <Col>
-              <Button onClick={changeCategory}>
+              <Button
+                name='changeCategory'
+                onClick={changeCategory}>
                 {category == 'watchlater' ? <Eye /> : <Bookmark />}
               </Button>
               <Button
+                name='deleteBtn'
                 variant="danger"
                 onClick={(e) => {
                   e.preventDefault()

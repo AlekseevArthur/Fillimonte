@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
-import { Image, Container, Row, Col, Button } from 'react-bootstrap'
+import { Image, Container, Row, Col } from 'react-bootstrap'
 import Gallery from './Gallery'
 import { Rating } from 'react-simple-star-rating'
 import CategoryButtons from './CategoryButtons';
 import CommentList from './CommentList';
+import Toaster from './Toaster';
 
 const FilmPage = ({ film, actors, token, rating: defaultRating, sign_in: login }) => {
   const [rating, setRating] = useState(defaultRating * 20)
+  const [message, setMessage] = useState({ message: '', show: false })
 
   const handleRating = (rate) => {
-
     fetch(`${window.location.href}/rating.json`, {
       method: rating ? 'PUT' : 'POST',
       headers: {
@@ -18,15 +19,20 @@ const FilmPage = ({ film, actors, token, rating: defaultRating, sign_in: login }
       },
       body: JSON.stringify({ rating: rate / 20 })
     })
+      .then(res => res.status === 200 || res.status === 204
+        ? setMessage({ message: `${rating ? 'Update' : 'Create'} rating - ${rate / 20}`, show: true })
+        : setMessage({ message: 'Smth goes wrong', show: true }))
   }
   return (
     <Container>
+      <Toaster
+        message={message}
+        setShow={() => setMessage({ message: '', show: false })} />
       <hr />
       <Row>
         <Col>
           <Image height={380} src={film.image_url} />
         </Col>
-
         <Col>
           <h1>{film.name}</h1>
           <hr />
@@ -95,7 +101,7 @@ const FilmPage = ({ film, actors, token, rating: defaultRating, sign_in: login }
       <hr />
       <Row>
         <h3 className='myClass'>Comments</h3>
-        <CommentList login={login}/>
+        <CommentList login={login} />
       </Row>
 
     </Container>

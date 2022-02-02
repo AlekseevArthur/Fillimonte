@@ -10,4 +10,8 @@ FactoryBot.define do
   factory :invalid_user, parent: :user do
     phone { 'dffdg12345' }
   end
+
+  factory :tony_hawk, parent: :user do
+    name { 'tony hawk' }
+  end
 end
