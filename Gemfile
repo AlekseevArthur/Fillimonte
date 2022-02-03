@@ -15,6 +15,8 @@ gem 'faker'
 
 gem 'devise'
 
+gem 'interactor'
+
 gem 'phonelib'
 
 gem 'shrine'

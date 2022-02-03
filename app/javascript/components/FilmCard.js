@@ -22,6 +22,7 @@ const FilmCard = ({ film }) => {
               filmId={film.id}
               watchlater={film.watchlater}
               viewed={film.viewed} />
+            {film.stars_rating ? <span>{' '}Your rating - {film.stars_rating}</span> : null}
           </Card.Body>
         </Nav.Link>
       </Card>

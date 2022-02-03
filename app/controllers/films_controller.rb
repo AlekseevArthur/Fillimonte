@@ -6,8 +6,10 @@ class FilmsController < ApplicationController
         new_film = film.attributes
         new_film[:watchlater] = Watchlater.exists?(user_id: current_user.id, film_id: film.id)
         new_film[:viewed] = Viewed.exists?(user_id: current_user.id, film_id: film.id)
+        new_film[:stars_rating] = RatingInteractor.call(film: film, user_id: current_user.id).result
         new_film
       end
+      @login = current_user ? true : false
     end
 
     return unless params[:query]

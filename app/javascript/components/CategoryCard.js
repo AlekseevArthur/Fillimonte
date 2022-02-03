@@ -33,12 +33,10 @@ const CategoryCard = ({ film, category, updateFilms, setMessage }) => {
 
   return (
     <Nav.Link style={{ padding: 0, color: 'black', margin: '5px 0' }} href={`/films/${film.id}`}>
-
       <Row style={{ border: '1px solid aqua', padding: '3px' }}>
         <Col sm={4} style={{ padding: 0 }}>
           <Image width={'90%'} src={film.image_url} />
         </Col>
-
         <ModalDelete
           show={modalShow}
           onClose={deleteClick}

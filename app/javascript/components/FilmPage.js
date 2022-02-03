@@ -6,11 +6,14 @@ import CategoryButtons from './CategoryButtons';
 import CommentList from './CommentList';
 import Toaster from './Toaster';
 
+
 const FilmPage = ({ film, actors, token, rating: defaultRating, sign_in: login }) => {
   const [rating, setRating] = useState(defaultRating * 20)
   const [message, setMessage] = useState({ message: '', show: false })
 
+
   const handleRating = (rate) => {
+    setRating(rate)
     fetch(`${window.location.href}/rating.json`, {
       method: rating ? 'PUT' : 'POST',
       headers: {
@@ -19,7 +22,7 @@ const FilmPage = ({ film, actors, token, rating: defaultRating, sign_in: login }
       },
       body: JSON.stringify({ rating: rate / 20 })
     })
-      .then(res => res.status === 200 || res.status === 204
+      .then(res => res.status === 200 || res.status === 201
         ? setMessage({ message: `${rating ? 'Update' : 'Create'} rating - ${rate / 20}`, show: true })
         : setMessage({ message: 'Smth goes wrong', show: true }))
   }

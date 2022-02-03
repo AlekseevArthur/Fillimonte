@@ -4,7 +4,7 @@ import { BookmarkFill, EyeFill, Bookmark, Eye } from 'react-bootstrap-icons';
 import Toaster from './Toaster';
 
 const CategoryButtons = ({ filmId, viewed, watchlater }) => {
-  const [state, setState] = useState({ watchlater: watchlater, viewed: viewed })
+  const [state, setState] = useState({ watchlater, viewed })
   const [message, setMessage] = useState({ message: '', show: false })
 
   const handleClick = (e, category) => {
