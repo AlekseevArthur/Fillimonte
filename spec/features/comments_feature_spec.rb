@@ -20,7 +20,7 @@ RSpec.describe 'Comments', type: :feature do
       visit "/films/#{film.id}"
       fill_in 'text', with: 'despacito'
       click_on 'Submit'
-      click_on 'x'
+      click_on 'deleteComment'
       expect(page).not_to have_text('despacito')
     end
 
@@ -29,7 +29,7 @@ RSpec.describe 'Comments', type: :feature do
       sign_in create(:tony_hawk)
       visit "/films/#{Film.first.id}"
       expect(page).to have_text('despacito')
-      expect(page).not_to have_content('x')
+      expect(page).not_to have_content('deleteComment')
     end
   end
 end

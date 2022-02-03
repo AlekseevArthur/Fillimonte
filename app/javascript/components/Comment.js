@@ -14,7 +14,7 @@ const Comment = ({ comment, updateComments }) => {
   }
 
   return <Card
-    style={{ 
+    style={{
       maxWidth: '800px',
       margin: '5px auto'
     }}
@@ -32,6 +32,7 @@ const Comment = ({ comment, updateComments }) => {
       </blockquote>
       {comment.canDelete
         ? <Button
+          name='deleteComment'
           onClick={deleteComment}
           variant="danger">x</Button>
         : null}
