@@ -19,4 +19,17 @@ RSpec.describe 'Simple user', type: :feature do
     expect(page).to have_content(film.rating)
     expect(page).to have_content(film.description)
   end
+
+  it 'has modal window on main page if user unauth' do
+    visit '/'
+    expect(page).to have_content('Hello stranger!')
+    expect(page).to have_content('You need to log in to access all features.')
+  end
+
+  it 'has not modal window on main page if user unauth' do
+    sign_in create(:user)
+    visit '/'
+    expect(page).to_not have_content('Hello stranger!')
+    expect(page).to_not have_content('You need to log in to access all features.')
+  end
 end

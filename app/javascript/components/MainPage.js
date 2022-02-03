@@ -19,7 +19,7 @@ const MainPage = ({ films, login }) => {
       .then(data => setFilms(data.films))
   }
 
-  const sortByRating = () => setFilms(films.sort((a, b) => b.rating - a.rating))
+  const sortByRating = () => setFilms(films.sort((a, b) => b.stars_rating - a.stars_rating))
 
   return (
     <div className='container'>

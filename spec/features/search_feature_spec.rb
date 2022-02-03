@@ -48,6 +48,7 @@ RSpec.describe 'Search bar', type: :feature do
     click_on 'Close'
     fill_in 'search', with: 'test'
     click_on 'Search'
+    click_on 'Close'
     expect(page).to have_current_path("#{current_path}?query=test")
     expect(page).to have_field('search', with: 'test')
   end
