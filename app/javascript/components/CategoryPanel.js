@@ -52,9 +52,14 @@ const CategoryPanel = () => {
           name='viewed'
           eventKey="viewed"
           title={<EyeFill width={35} />}>
-          <h3 className='myClass' style={{ paddingTop: 0 }}>Viewed</h3>
+          <h3
+            className='myClass'
+            style={{ paddingTop: 0 }}>
+            Viewed</h3>
           {loading
-            ? <Spinner animation="border" variant="info" />
+            ? <Spinner
+              animation="border"
+              variant="info" />
             : films.viewed.map((film, key) => <CategoryCard
               updateFilms={() => setLoad(true)}
               category='viewed'

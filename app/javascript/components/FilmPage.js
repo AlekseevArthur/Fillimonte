@@ -95,7 +95,9 @@ const FilmPage = ({ film, actors, token, rating: defaultRating, sign_in: login }
       </Row>
       <Row>
         <h3 className='myClass'>Trailer</h3>
-        <iframe width='420' height='330'
+        <iframe
+          width='420'
+          height='330'
           src={film.trailer}>
         </iframe>
       </Row>
@@ -104,7 +106,8 @@ const FilmPage = ({ film, actors, token, rating: defaultRating, sign_in: login }
       <hr />
       <Row>
         <h3 className='myClass'>Comments</h3>
-        <CommentList login={login} />
+        <CommentList
+          login={login} />
       </Row>
 
     </Container>

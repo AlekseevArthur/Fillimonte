@@ -8,14 +8,13 @@ import ModalDelete from './ModalDelete';
 const CategoryCard = ({ film, category, updateFilms, setMessage }) => {
   const [modalShow, setModalShow] = useState(false);
 
-
   const deleteClick = () => {
     fetch(`/user/${category}?film_id=${film.id}`, {
       method: 'DELETE'
     })
       .then(() => {
-        setMessage('Deleted')
-        updateFilms(true)
+        setMessage(`Deleted from ${category}`)
+        updateFilms()
       })
   }
 
@@ -26,7 +25,7 @@ const CategoryCard = ({ film, category, updateFilms, setMessage }) => {
     })
       .then(() => {
         setMessage(`Added to ${category == 'viewed' ? 'watchlater' : 'viewed'}`)
-        updateFilms(true)
+        updateFilms()
 
       })
   }

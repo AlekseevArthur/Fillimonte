@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Nav', type: :feature do
   let(:user) { create(:user) }
+
   it 'has login link if user didnt auth' do
     visit '/'
     expect(page).to have_content('Login')

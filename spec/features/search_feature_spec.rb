@@ -36,6 +36,7 @@ RSpec.describe 'Search bar', type: :feature do
   it 'show all films if search field is empty' do
     film
     drive
+
     visit '/'
     click_on 'Close'
     fill_in 'search', with: ''
@@ -44,11 +45,10 @@ RSpec.describe 'Search bar', type: :feature do
   end
 
   it 'save query in field after submit' do
+    sign_in create(:user)
     visit '/'
-    click_on 'Close'
     fill_in 'search', with: 'test'
     click_on 'Search'
-    click_on 'Close'
     expect(page).to have_current_path("#{current_path}?query=test")
     expect(page).to have_field('search', with: 'test')
   end

@@ -3,7 +3,7 @@ import { Card, Button } from 'react-bootstrap'
 
 const Comment = ({ comment, updateComments }) => {
 
-  function deleteComment() {
+  const deleteComment = () => {
     fetch(`${window.location.href}/comments/${comment.comment_id}`, {
       method: 'DELETE',
       headers: {
