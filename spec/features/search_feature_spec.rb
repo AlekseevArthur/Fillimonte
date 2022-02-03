@@ -6,6 +6,7 @@ RSpec.describe 'Search bar', type: :feature do
 
   it 'exists on a main page' do
     visit '/'
+    click_on 'Close'
     expect(page).to have_content('Search')
   end
 
@@ -13,6 +14,7 @@ RSpec.describe 'Search bar', type: :feature do
     film
     drive
     visit '/'
+    click_on 'Close'
     expect(page).to have_content(drive.name)
     fill_in 'search', with: film.name
     expect(page).to have_content(film.name)
@@ -23,6 +25,7 @@ RSpec.describe 'Search bar', type: :feature do
     film
     drive
     visit '/'
+    click_on 'Close'
     expect(page).to have_content(drive.name)
     fill_in 'search', with: film.name
     click_on 'Search'
@@ -34,6 +37,7 @@ RSpec.describe 'Search bar', type: :feature do
     film
     drive
     visit '/'
+    click_on 'Close'
     fill_in 'search', with: ''
     expect(page).to have_content(drive.name)
     expect(page).to have_content(film.name)
@@ -41,6 +45,7 @@ RSpec.describe 'Search bar', type: :feature do
 
   it 'save query in field after submit' do
     visit '/'
+    click_on 'Close'
     fill_in 'search', with: 'test'
     click_on 'Search'
     expect(page).to have_current_path("#{current_path}?query=test")

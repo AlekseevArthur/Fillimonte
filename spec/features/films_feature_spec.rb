@@ -5,6 +5,7 @@ RSpec.describe 'Simple user', type: :feature do
     film = create(:film)
     expect(Film.count).to eq(1)
     visit '/'
+    click_on 'Close'
     expect(page).to have_content(film.name)
   end
 
@@ -12,6 +13,7 @@ RSpec.describe 'Simple user', type: :feature do
     film = create(:film)
     expect(Film.count).to eq(1)
     visit '/'
+    click_on 'Close'
     expect(page).to have_content(film.name)
     click_on 'Fight club'
     expect(page).to have_content(film.rating)

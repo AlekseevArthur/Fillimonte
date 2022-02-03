@@ -19,6 +19,7 @@ RSpec.describe 'User', type: :feature do
   it 'can login' do
     user
     visit '/'
+    click_on 'Close'
     click_on 'Login'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: '111111'
