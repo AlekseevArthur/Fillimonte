@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :authenticate_user!, only: %i[create destroy show]
+  before_action :authenticate_user!, only: %i[create destroy]
 
   def index
     @comments = Film.find(params[:film_id]).comments
@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
       user_id: current_user.id
     )
     respond_to do |format|
-      if @comment.save!
+      if @comment.save
         format.json { render json: @comment, status: :created }
         format.html { render json: @comment, status: :created }
       else

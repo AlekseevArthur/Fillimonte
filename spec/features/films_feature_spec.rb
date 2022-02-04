@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Simple user', type: :feature do
+RSpec.describe 'User', type: :feature do
   it 'can visit main page and see added films' do
     film = create(:film)
     expect(Film.count).to eq(1)
@@ -20,13 +20,13 @@ RSpec.describe 'Simple user', type: :feature do
     expect(page).to have_content(film.description)
   end
 
-  it 'has modal window on main page if user unauth' do
+  it 'has modal window on main page if unauth' do
     visit '/'
     expect(page).to have_content('Hello stranger!')
     expect(page).to have_content('You need to log in to access all features.')
   end
 
-  it 'has not modal window on main page if user unauth' do
+  it 'has not modal window on main page if unauth' do
     sign_in create(:user)
     visit '/'
     expect(page).to_not have_content('Hello stranger!')

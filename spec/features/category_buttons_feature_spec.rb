@@ -4,7 +4,7 @@ RSpec.describe 'Category buttons', type: :feature do
   let(:user) { create(:user) }
   let(:film) { create(:film) }
 
-  it 'can add film to wl on main page' do
+  it 'can add film to watchlater list on the main page' do
     sign_in user
     film
     visit '/'
@@ -12,7 +12,7 @@ RSpec.describe 'Category buttons', type: :feature do
     expect(page).to have_content('Added to watchlater')
   end
 
-  it 'can add film to wl on film page' do
+  it 'can add film to watchlater list on the film page' do
     sign_in user
     film
     visit '/'
@@ -21,7 +21,7 @@ RSpec.describe 'Category buttons', type: :feature do
     expect(page).to have_content('Added to watchlater')
   end
 
-  it 'can add film to vd on main page' do
+  it 'can add film to vd on the main page' do
     sign_in user
     film
     visit '/'
@@ -29,7 +29,7 @@ RSpec.describe 'Category buttons', type: :feature do
     expect(page).to have_content('Added to viewed')
   end
 
-  it 'can add film to vd on film page' do
+  it 'can add film to vd on the film page' do
     sign_in user
     film
     visit '/'

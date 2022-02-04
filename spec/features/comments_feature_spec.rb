@@ -31,5 +31,14 @@ RSpec.describe 'Comments', type: :feature do
       expect(page).to have_text('despacito')
       expect(page).not_to have_content('deleteComment')
     end
+
+    it 'return an error message if they are invalid.' do
+      film
+      sign_in user
+      visit "/films/#{Film.first.id}"
+      fill_in 'text', with: '1'
+      click_on 'Submit'
+      expect(page).to have_content('Error, your comment invalid =(')
+    end
   end
 end
