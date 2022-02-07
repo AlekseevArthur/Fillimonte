@@ -17,8 +17,8 @@ end
 
 RSpec.describe 'User', type: :feature do
   let(:user) { create(:user) }
+
   it 'can login' do
-    user
     visit '/'
     click_on 'Close'
     click_on 'Login'
@@ -30,7 +30,7 @@ RSpec.describe 'User', type: :feature do
 
   it 'can visit profile page' do
     sign_in user
-    visit '/user'
+    visit user_path
     expect(page).to have_content(user.name)
     expect(page).to have_content('+375291111111')
   end

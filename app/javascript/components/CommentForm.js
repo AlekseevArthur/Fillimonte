@@ -20,9 +20,10 @@ const CommentForm = ({ updateComments }) => {
         if (res.ok) {
           updateComments()
           inputEl.current.value = ''
+          setMessage({ message: 'Comment added', show: true })
         }
         else if (res.status === 422) {
-          setMessage({ message: 'Error, your comment invalid =(', show: true })
+          setMessage({ message: 'Error, your comment is invalid =(', show: true })
         }
       })
   }

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Button, Row, Col, Image, Nav } from 'react-bootstrap';
-import { Rating } from 'react-simple-star-rating';
 import { Bookmark, Eye, BookmarkXFill, EyeSlashFill } from 'react-bootstrap-icons';
 import ModalDelete from './ModalDelete';
 

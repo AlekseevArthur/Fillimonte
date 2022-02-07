@@ -32,13 +32,13 @@ RSpec.describe 'Comments', type: :feature do
       expect(page).not_to have_content('deleteComment')
     end
 
-    it 'return an error message if they are invalid.' do
+    it 'return an error message if input is invalid.' do
       film
       sign_in user
       visit "/films/#{Film.first.id}"
       fill_in 'text', with: '1'
       click_on 'Submit'
-      expect(page).to have_content('Error, your comment invalid =(')
+      expect(page).to have_content('Error, your comment is invalid =(')
     end
   end
 end

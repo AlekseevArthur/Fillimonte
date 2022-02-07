@@ -1,44 +1,46 @@
 require 'rails_helper'
 
-RSpec.describe 'Comments requests', type: :request do
-  let(:film) { create(:film) }
-  let(:user) { create(:user) }
+RSpec.describe 'Comments request', type: :request do
+  let!(:film)   { create :film }
+  let(:user)    { create :user }
+  let(:request) { :post }
+  let(:path)    { "/films/#{film.id}/comments" }
+  let(:params)  { { comment: '123' } }
 
-  context 'from unauth user' do
+  subject do
+    send(request, path, params: params)
+    response
+  end
+
+  context 'unauthorized user' do
     it 'should not add comment' do
-      film
-      post "/films/#{Film.first.id}/comments", params: { comment: '123' }
-      expect(Comment.count).to eq(0)
+      expect(subject).not_to have_http_status(:success)
     end
   end
 
-  context 'from authorized user' do
-    it 'should add comment' do
-      sign_in user
-      film
-      expect(Comment.count).to eq(0)
-      post "/films/#{Film.first.id}/comments", params: { comment: '123' }
-      expect(Comment.count).to eq(1)
-      expect(Comment.first).to_not eq(nil)
+  context 'authorized user' do
+    context 'index' do
+      it 'should add comment' do
+        sign_in user
+        expect { subject }.to change { Comment.count }.by(1)
+      end
     end
 
-    it 'should delete own comment' do
-      sign_in user
-      film
-      comment = Comment.create({ user_id: user.id, film_id: film.id, text: '12323' })
-      expect(Comment.count).to eq(1)
-      delete "/films/#{film.id}/comments/#{comment.id}"
-      expect(Comment.count).to eq(0)
-    end
+    context 'delete' do
+      let!(:comment) { create :comment, user: user, film: film }
+      let(:request)  { :delete }
+      let(:path)     { "/films/#{film.id}/comments/#{comment.id}" }
+      let(:params)   {}
 
-    it 'should not delete another\'s comment' do
-      sign_in create(:tony_hawk)
-      film
-      user
-      comment = Comment.create({ user_id: user.id, film_id: film.id, text: '12323' })
-      expect(Comment.count).to eq(1)
-      delete "/films/#{film.id}/comments/#{comment.id}"
-      expect(Comment.count).to eq(1)
+      it 'should delete own comment' do
+        sign_in user
+        expect { subject }.to change { Comment.count }.by(-1)
+      end
+
+      it 'should not delete another\'s comment' do
+        sign_in create :tony_hawk
+        expect { subject }.not_to(change { Comment.count })
+      end
     end
   end
 end

@@ -1,7 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe 'User', type: :feature do
-  it 'can visit main page and see added films' do
+RSpec.describe 'Films', type: :feature do
+  let(:film) { create :film }
+
+  it 'shown at root path' do
     film = create(:film)
     expect(Film.count).to eq(1)
     visit '/'
@@ -9,7 +11,7 @@ RSpec.describe 'User', type: :feature do
     expect(page).to have_content(film.name)
   end
 
-  it 'can click on card' do
+  it 'show the film page by clicking on the card' do
     film = create(:film)
     expect(Film.count).to eq(1)
     visit '/'
@@ -20,16 +22,18 @@ RSpec.describe 'User', type: :feature do
     expect(page).to have_content(film.description)
   end
 
-  it 'has modal window on main page if unauth' do
-    visit '/'
-    expect(page).to have_content('Hello stranger!')
-    expect(page).to have_content('You need to log in to access all features.')
-  end
+  context 'Welcome modal window' do
+    it 'shown on main page if unauth' do
+      visit '/'
+      expect(page).to have_content('Hello stranger!')
+      expect(page).to have_content('You need to log in to access all features.')
+    end
 
-  it 'has not modal window on main page if unauth' do
-    sign_in create(:user)
-    visit '/'
-    expect(page).to_not have_content('Hello stranger!')
-    expect(page).to_not have_content('You need to log in to access all features.')
+    it 'not shown on main page if unauth' do
+      sign_in create(:user)
+      visit '/'
+      expect(page).to_not have_content('Hello stranger!')
+      expect(page).to_not have_content('You need to log in to access all features.')
+    end
   end
 end

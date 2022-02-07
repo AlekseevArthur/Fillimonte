@@ -28,13 +28,7 @@ const ProfileNav = ({ user, token, image }) => {
       .then(() => window.location = '/')
   }
 
-  const [show, setShow] = useState(false);
-  const showDropdown = () => {
-    setShow(!show);
-  }
-  const hideDropdown = () => {
-    setShow(false);
-  }
+  const [show, setShow] = useState(false)
 
   const redirect = () => {
     window.location.href = '/user'
@@ -43,8 +37,8 @@ const ProfileNav = ({ user, token, image }) => {
   return (
     <NavDropdown id='lol'
       show={show}
-      onMouseEnter={showDropdown}
-      onMouseLeave={hideDropdown}
+      onMouseEnter={()=>setShow(true)}
+      onMouseLeave={()=>setShow(false)}
       title={
         <>
           <span style={{ paddingRight: '5px' }} className="ms-1">{user.name}   </span>
